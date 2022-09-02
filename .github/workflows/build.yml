@@ -56,19 +56,6 @@ jobs:
           cd publish || exit 1
           sha256sum geosite.dat > geosite.dat.sha256sum
 
-      - name: Git push assets to "release" branch
-        if: ${{ env.NeedToSync }}
-        run: |
-          cd publish || exit 1
-          git init
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b release
-          git add .
-          git commit -m "${{ env.RELEASE_NAME }}"
-          git remote add publish "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f publish release
-
       - name: Release and upload assets
         if: ${{ env.NeedToSync }}
         uses: softprops/action-gh-release@v1
