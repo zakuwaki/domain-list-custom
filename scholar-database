@@ -1,0 +1,106 @@
+include:cas
+include:chaoxing
+include:cnki
+include:wanfang
+airitilibrary.cn # 华艺学术文献数据库
+ancientbooks.cn # 籍合网
+apabi.com
+bjinfobank.com # 高校数据财经库
+blyun.com # 百链
+cnbksy.com # 全国报刊索引
+ccf.org.cn 
+cqvip.com
+drcnet.com.cn # 国研网
+duxiu.com # 读秀搜索
+ersjk.com # 爱如生典海数字平台
+gtarsc.com # 国泰安数据库
+htcases.com # 全球案例发现
+hwshu.com # 瀚文民国书库
+incopat.com # incoPat 专利数据库
+nmrdata.com # 微谱数据
+nssd.cn # 国家哲学社会科学学术期刊数据库
+rdfybk.com # 人大复印报刊资料
+sslibrary.com # 超星电子书
+tokyotrial.cn # 东京审判文献数据库
+unihan.com.cn # 书同文
+wenxin-ge.com # 文心阁古籍全文数据库
+yiigle.com # 中华医学期刊全文数据库
+full:www.libvideo.com # 武汉缘来文化-知识视界
+include:apa
+include:cambridge
+include:clarivate
+include:elsevier
+include:ieee
+include:knovel
+include:mit
+include:oup
+include:proquest
+include:sciencedirect
+include:springer
+include:taylorfrancis
+acm.org
+acs.org
+aiaa.org # AIAA 美国航空航天学会
+aimsciences.org # AIMS 美国科学数学协会期刊库
+amdigital.co.uk # Adam Matthew Digital 历史与文化珍稀史料数据库集成
+ams.org # 美国数学学会
+annualreviews.org
+aps.org # American Physical Society Sites
+arabidopsis.org
+ascelibrary.org # American Society of Civil Engineers 美国土木工程师学会
+asm.org # The American Society for Microbiology 美国微生物学会
+asme.org # American Society of Mechanical Engineers 美国机械工程师学会
+asminternational.org # ASM 材料信息协会
+aspbjournals.org # ASPB 美国植物生物学家学会全文期刊库
+astm.org # ASTM 美国材料与试验协会
+biomedcentral.com # BMC
+biorxiv.org
+bmj.com # BMJ 英国医学会期刊
+bvdinfo.com # BvD系列数据库（Bank Focus、Osiris、ORBIS、Orbis Intellectual Property、Zephyr、EIU Countrydata）
+cas.org # American Chemical Society
+choicereviews.org
+cios.org
+cochranelibrary.com
+computingreviews.com
+degruyter.com
+ebscohost.com
+electrochem.org
+elgaronline.com
+embase.com
+emerald.com # Emerald 管理学期刊库、工程学期刊库、电子书
+ems-ph.org # European Mathematical Society Publishing House
+eurekaselect.com # Bentham Science期刊库
+galegroup.com # Gale 平台
+global-sci.org # Global Science Press GSP电子期刊
+heinonline.org # HeinOnline 法律全文数据库
+icevirtuallibrary.com # 英国土木工程师学会 ICE Virtual Library
+iop.org
+jamanetwork.com
+japanknowledge.com # Japan Knowledge Lib（日本知识库）数据库
+jove.com
+jstage.jst.go.jp # Japan Science and Technology Information Aggregator, Electronic, J-STAGE (日本Free Access学术期刊)
+jstor.org
+karger.com
+mdpi.com
+nature.com
+ovid.com
+pnas.org # Proceedings of the National Academy of Sciences of the United States of America 美国科学院报
+projecteuclid.org # Project Euclid Mathematics and Statistics Online
+researchgate.net
+rsc.org
+sae.org
+science.com
+sciencemag.org
+scitation.org
+siam.org # Society for Industry and Applied Mathematics 美国工业和应用数学学会
+silverchair-cdn.com # https://global.oup.com/academic/news/silverchair-announcement
+spiedigitallibrary.org
+thieme-connect.com
+westlaw.com
+wiley.com
+worldscientific.com
+full:beck-online.beck.de # Beck-Online数据库
+full:dl.begellhouse.com # Begell Digital Library
+full:databank.worldbank.org # World DataBank 世界经济学数据库
+full:firstsearch.oclc.org # OCLC FirstSearch
+full:muse.jhu.edu # Project MUSE
