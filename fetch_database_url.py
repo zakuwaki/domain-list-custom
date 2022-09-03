@@ -2,7 +2,8 @@ import json
 import requests
 
 from urllib.parse import urlparse
-from typing import List
+from collections import OrderedDict
+from typing import List, Tuple
 
 
 import logging
@@ -38,7 +39,7 @@ def fetch_support_hosts(url):
     return hosts
 
 
-def is_match(line: str, hosts: List[str]) -> bool:
+def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
     # 清洗注释
     if "#" in line:
         line = line.split("#")[0]
@@ -49,19 +50,22 @@ def is_match(line: str, hosts: List[str]) -> bool:
     line = line.strip()
 
     if not line:
-        return False
+        return "", False
 
     for host in hosts:
         if line.strip().lower() in host.strip().lower():
-            return True
+            return host, True
 
     logger.warning(f"[Rule Not Match]: {line}")
 
-    return False
+    return "", False
 
 
 def main(args):
     hosts = fetch_support_hosts(args.url)
+    match_count = OrderedDict()
+    for host in hosts:
+        match_count[host] = 0
 
     rules = []
     for url in [
@@ -71,8 +75,12 @@ def main(args):
         resp = requests.get(url)
         data = resp.content.decode()
         for line in data.split("\n"):
-            if is_match(line, hosts):
+            host, matched = match(line, hosts)
+            if matched:
                 rules.append(line)
+                if match_count[host] > 0:
+                    print(line, host)
+                match_count[host] += 1
 
         with open(args.file, "w") as f:
             f.writelines([rule + "\n" for rule in rules])
