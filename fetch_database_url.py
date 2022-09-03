@@ -52,7 +52,7 @@ def is_match(line: str, hosts: List[str]) -> bool:
         return False
 
     for host in hosts:
-        if line in host:
+        if line.strip().lower() in host.strip().lower():
             return True
 
     logger.warning(f"[Rule Not Match]: {line}")
