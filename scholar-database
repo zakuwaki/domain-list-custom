@@ -25,13 +25,11 @@ unihan.com.cn # 书同文
 wenxin-ge.com # 文心阁古籍全文数据库
 yiigle.com # 中华医学期刊全文数据库
 full:www.libvideo.com # 武汉缘来文化-知识视界
-include:apa
 include:cambridge
 include:clarivate
 include:elsevier
 include:ieee
 include:knovel
-include:oup
 include:proquest
 include:sciencedirect
 include:springer
