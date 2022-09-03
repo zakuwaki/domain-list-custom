@@ -54,8 +54,9 @@ def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
 
     for host in hosts:
         if line.strip().lower() in host.strip().lower():
-            if len(line) <= 6 and len(host) - len(line) >= 6:
+            if len(line) <= 6 and f".{line.strip().lower()}." not in host.strip().lower():
                 logger.warning(f"[MUCH DIFF]: {line} to {host}")
+                return "", False
             return host, True
 
     logger.warning(f"[Rule Not Match]: {line}")
