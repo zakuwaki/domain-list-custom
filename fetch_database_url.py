@@ -39,7 +39,7 @@ def fetch_support_hosts(url):
     return hosts
 
 
-def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
+def match(line: str, hosts: List[str]) -> List[str]:
     # 清洗注释
     if "#" in line:
         line = line.split("#")[0]
@@ -49,19 +49,21 @@ def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
     # 清洗空字符
     line = line.strip()
 
+    matches = []
     if not line:
-        return "", False
+        return matches
 
     for host in hosts:
         if line.strip().lower() in host.strip().lower():
             if len(line) <= 6 and f".{line.strip().lower()}." not in host.strip().lower():
                 logger.warning(f"[Short Mis-Match]: {line} to {host}")
-                return "", False
-            return host, True
+                continue
+            matches.append(host)
 
-    logger.warning(f"[Rule Not Match]: {line}")
+    if not matches:
+        logger.warning(f"[Rule Not Match]: {line}")
 
-    return "", False
+    return matches
 
 
 def main(args):
@@ -78,12 +80,13 @@ def main(args):
         resp = requests.get(url)
         data = resp.content.decode()
         for line in data.split("\n"):
-            host, matched = match(line, hosts)
-            if matched:
+            matches = match(line, hosts)
+            if matches:
                 rules.append(line)
-                match_info[host].append(line)
-                if len(match_info[host]) > 1:
-                    logger.warning(f"Host Multi Match{match_info[host]}")
+                for host in matches:
+                    match_info[host].append(line)
+                    if len(match_info[host]) > 1:
+                        logger.warning(f"[Host Multi Match]: {host}: {match_info[host]}")
 
         for host, list in match_info.items():
             if not list:
