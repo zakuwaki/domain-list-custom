@@ -30,6 +30,7 @@ include:clarivate
 include:elsevier
 include:ieee
 include:knovel
+include:oup
 include:proquest
 include:sciencedirect
 include:springer
