@@ -22,9 +22,9 @@ def fetch_support_hosts(url):
     repeat = set()
     for info in infos:
         if "url" not in info:
-            logger.warning("[NO URL]: {}".format(info["name"]))
+            logger.warning("[No Url]: {}".format(info["name"]))
         elif "tag" in info and "免费" in info["tag"]:
-            logger.warning("[PASS FREE]: {}".format(info["name"]))
+            logger.warning("[Pass Free]: {}".format(info["name"]))
         else:
             url_str = info["url"]
             for pair in url_str.split(","):
@@ -55,7 +55,7 @@ def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
     for host in hosts:
         if line.strip().lower() in host.strip().lower():
             if len(line) <= 6 and f".{line.strip().lower()}." not in host.strip().lower():
-                logger.warning(f"[MUCH DIFF]: {line} to {host}")
+                logger.warning(f"[Short Mis-Match]: {line} to {host}")
                 return "", False
             return host, True
 
@@ -66,9 +66,9 @@ def match(line: str, hosts: List[str]) -> Tuple[str, bool]:
 
 def main(args):
     hosts = fetch_support_hosts(args.url)
-    match_count = OrderedDict()
+    match_info = OrderedDict()
     for host in hosts:
-        match_count[host] = 0
+        match_info[host] = []
 
     rules = []
     for url in [
@@ -81,9 +81,13 @@ def main(args):
             host, matched = match(line, hosts)
             if matched:
                 rules.append(line)
-                if match_count[host] > 0:
-                    print(line, host)
-                match_count[host] += 1
+                match_info[host].append(line)
+                if len(match_info[host]) > 1:
+                    logger.warning(f"Host Multi Match{match_info[host]}")
+
+        for host, list in match_info.items():
+            if not list:
+                logger.warning(f"[Host Not Match]: {host}")
 
         with open(args.file, "w") as f:
             f.writelines([rule + "\n" for rule in rules])
