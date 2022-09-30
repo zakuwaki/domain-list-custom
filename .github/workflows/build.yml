@@ -52,8 +52,8 @@ jobs:
 
       - name: Create google-cn and apple-cn
         run: |
-          curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./community/data/google-cn
-          curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./community/data/apple-cn
+          curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/google-cn
+          curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/apple-cn
         shell: bash
 
       - name: Get dependencies and run
