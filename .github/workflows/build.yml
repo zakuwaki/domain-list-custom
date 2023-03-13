@@ -42,12 +42,13 @@ jobs:
       - name: Append attribute rules
         if: ${{ env.NeedToSync }}
         run: |
-          echo "include:geolocation-!cn @cn" >> ./domain-list-community/data/cn
-          echo "include:geolocation-cn @!cn" >> ./domain-list-community/data/geolocation-\!cn
+          echo 'include:geolocation-!cn @cn' >> ./domain-list-community/data/cn
+          echo 'include:geolocation-cn @!cn' >> ./domain-list-community/data/geolocation-\!cn
 
       - name: Add scholar database
         if: ${{ env.NeedToSync }}
         run: |
+          ./fetch_database_url.py
           cp -a scholar-database ./domain-list-community/data
 
       - name: Create google-cn and apple-cn
@@ -55,6 +56,16 @@ jobs:
         run: |
           curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/google-cn
           curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/apple-cn
+        shell: bash
+
+      - name: Enhance adblock list
+        if: ${{ env.NeedToSync }}
+        run: |
+          curl -sSL https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt | perl -ne '/^\|\|([-_0-9a-zA-Z]+(\.[-_0-9a-zA-Z]+){1,64})\^$/ && print "$1\n"' | perl -ne 'print if not /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/' > temp-reject.txt
+          curl -sSL https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt | perl -ne '/^\|\|([-_0-9a-zA-Z]+(\.[-_0-9a-zA-Z]+){1,64})\^$/ && print "$1\n"' | perl -ne 'print if not /^[0-9]{1,3}(\.[0-9]{1,3}){3}$/' >> temp-reject.txt
+          cat temp-reject.txt | sort --ignore-case -u > reject-list-with-redundant
+          ./dedup_domain.py ./reject-list-with-redundant ./reject-list-without-redundant
+          cat reject-list-without-redundant | sort --ignore-case -u | perl -ne '/^((?=^.{1,255})[a-zA-Z0-9][-_a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-_a-zA-Z0-9]{0,62})*)/ && print "$1\n"' > ./domain-list-community/data/category-ads-all
         shell: bash
 
       - name: Get dependencies and run
