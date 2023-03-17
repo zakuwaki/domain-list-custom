@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 import json
 import requests
 
@@ -105,4 +108,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     rules = main(args)
-
