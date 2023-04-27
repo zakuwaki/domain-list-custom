@@ -51,11 +51,12 @@ jobs:
         run: |
           cp -a scholar-database ./domain-list-community/data
 
-      - name: Create google-cn and apple-cn
+      - name: Create google-cn apple-cn gfw
         if: ${{ env.NeedToSync }}
         run: |
           curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/google-cn
           curl -sSL https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "full:$1\n"' > ./domain-list-community/data/apple-cn
+          curl -sSL https://raw.githubusercontent.com/zakuwaki/router-files/ss_rules/gfw.txt | sed "s/^/domain:&/g" > ./domain-list-community/data/gfw
         shell: bash
 
       - name: Get dependencies and run
