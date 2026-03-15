@@ -1,0 +1,97 @@
+include:cas
+include:chaoxing
+include:cnki
+include:wanfang
+airitilibrary.cn # 华艺学术文献数据库
+ancientbooks.cn # 籍合网
+bjinfobank.com # 高校数据财经库
+blyun.com # 百链云图书馆
+cidp.com.cn # CIDP制造业数字资源平台
+cnbksy.com # 全国报刊索引
+cqvip.com
+drcnet.com.cn # 国研网
+duxiu.com # 读秀搜索
+ersjk.com # 爱如生典海数字平台
+htcases.com # 全球案例发现
+hwshu.com # 瀚文民国书库
+incopat.com # incoPat 专利数据库
+libvideo.com # 知识视界 武汉缘来文化
+nmrdata.com # 微谱数据
+nssd.cn # 国家哲学社会科学学术期刊数据库
+pishu.com.cn # 皮书数据库（社会科学文献出版社）
+pkulaw.com # 北大法宝
+rdfybk.com # 人大复印报刊资料
+tokyotrial.cn # 东京审判文献数据库
+unihan.com.cn # 书同文
+wenxin-ge.com # 文心阁古籍全文数据库
+yiigle.com # 中华医学期刊全文数据库
+include:clarivate
+include:ieee
+include:mit
+include:proquest
+include:sciencedirect
+include:springer
+include:taylorfrancis
+acm.org
+acs.org
+aiaa.org # AIAA 美国航空航天学会
+aimsciences.org # AIMS 美国科学数学协会期刊库
+alexanderstreet.com # Alexander Street
+amdigital.co.uk # Adam Matthew Digital 历史与文化珍稀史料数据库集成
+ams.org # 美国数学学会
+annualreviews.org
+aps.org # American Physical Society Sites
+arabidopsis.org
+ascelibrary.org # American Society of Civil Engineers 美国土木工程师学会
+asm.org # The American Society for Microbiology 美国微生物学会
+asme.org # American Society of Mechanical Engineers 美国机械工程师学会
+astm.org # ASTM 美国材料与试验协会
+biomedcentral.com # BMC
+bloomsburycollections.com # Bloomsbury Publishing
+bmj.com # BMJ 英国医学会期刊
+cas.org # American Chemical Society
+chemnetbase.com # CRC Handbook of Chemistry and Physics
+choicereviews.org
+cochranelibrary.com
+degruyter.com
+ebscohost.com
+electrochem.org
+elgaronline.com
+embase.com
+emerald.com # Emerald 管理学期刊库、工程学期刊库、电子书
+ems-ph.org # European Mathematical Society Publishing House
+eurekaselect.com # Bentham Science期刊库
+galegroup.com # Gale 平台
+global-sci.org # Global Science Press GSP电子期刊
+heinonline.org # HeinOnline 法律全文数据库
+icevirtuallibrary.com # 英国土木工程师学会 ICE Virtual Library
+igi-global.com # IGI Global 平台
+iop.org
+jamanetwork.com
+jove.com
+jstor.org
+karger.com
+nature.com
+optica.org # OSA 美国光学学会全文数据库
+ovid.com
+physiology.org
+pnas.org # Proceedings of the National Academy of Sciences of the United States of America 美国科学院报
+projecteuclid.org # Project Euclid Mathematics and Statistics Online
+rsc.org
+sae.org
+sagepub.com
+science.com
+sciencemag.org
+scitation.org
+siam.org # Society for Industry and Applied Mathematics 美国工业和应用数学学会
+spiedigitallibrary.org
+thieme-connect.com
+uchicago.edu
+wiley.com
+worldscientific.com
+full:beck-online.beck.de # Beck-Online数据库
+full:databank.worldbank.org # World DataBank 世界经济学数据库
+full:dl.begellhouse.com # Begell Digital Library
+full:firstsearch.oclc.org # OCLC FirstSearch
+full:muse.jhu.edu # Project MUSE
+full:wrds-www.wharton.upenn.edu # Compustat 财务与价格数据库
